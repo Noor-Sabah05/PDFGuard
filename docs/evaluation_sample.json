@@ -1,0 +1,131 @@
+{
+  "cases": [
+    {
+      "test": "T1",
+      "fixture": "benign",
+      "expected": "low",
+      "actual": "low",
+      "pass": true,
+      "latency_ms": 741.62,
+      "sha256": "59be5d5fcfff9756bb58c04ef3a981e106565d58b6c2acb2ff1aabbe37112724",
+      "evidence": []
+    },
+    {
+      "test": "T4",
+      "fixture": "javascript",
+      "expected": "high",
+      "actual": "high",
+      "pass": true,
+      "latency_ms": 619.35,
+      "sha256": "992c319e0a601aa4d6de9b1a1c31d56e84e9668391168ad655caac4e4e0b037d",
+      "evidence": [
+        "/OpenAction",
+        "/JavaScript",
+        "/JS"
+      ]
+    },
+    {
+      "test": "T4",
+      "fixture": "launch",
+      "expected": "high",
+      "actual": "high",
+      "pass": true,
+      "latency_ms": 615.33,
+      "sha256": "63fc4ea9cc5e89cd21062e78aa4f0b277255d73fd65868918c627793b29989b7",
+      "evidence": [
+        "/OpenAction",
+        "/Launch"
+      ]
+    },
+    {
+      "test": "T1",
+      "fixture": "attachment",
+      "expected": "low",
+      "actual": "low",
+      "pass": true,
+      "latency_ms": 608.04,
+      "sha256": "3912634dc95bfa8634e312fefecd677ff5b4da7397824f54dcbac051a019a48a",
+      "evidence": [
+        "/EmbeddedFile"
+      ]
+    },
+    {
+      "test": "T5",
+      "fixture": "encrypted",
+      "expected": "encrypted",
+      "actual": "encrypted",
+      "pass": true,
+      "latency_ms": 699.43,
+      "sha256": "ccf8764c885eb3d172716d7193b2b12ff5e044f0c6c9ab114973720e1fac41bc",
+      "evidence": []
+    },
+    {
+      "test": "T2",
+      "fixture": "corrupt-structure",
+      "expected": "rejected",
+      "actual": "rejected",
+      "pass": true,
+      "evidence": [
+        "parser error handled"
+      ]
+    },
+    {
+      "test": "T3",
+      "fixture": "synthetic-flate-expansion",
+      "expected": "rejected",
+      "actual": "rejected",
+      "pass": true,
+      "evidence": [
+        "2 MiB decoded-output cap",
+        "100x expansion-ratio cap"
+      ]
+    },
+    {
+      "test": "T-final",
+      "fixture": "wrong-extension",
+      "expected": "rejected",
+      "actual": "rejected",
+      "pass": true,
+      "evidence": [
+        "extension gate"
+      ]
+    },
+    {
+      "test": "T-final",
+      "fixture": "oversized",
+      "expected": "rejected",
+      "actual": "rejected",
+      "pass": true,
+      "evidence": [
+        "10 MiB file cap"
+      ]
+    },
+    {
+      "test": "T-final",
+      "fixture": "repeatability",
+      "expected": "same",
+      "actual": "same",
+      "pass": true,
+      "evidence": [
+        "matching SHA-256"
+      ]
+    }
+  ],
+  "metrics": {
+    "pass_rate": 1.0,
+    "true_positive": 2,
+    "true_negative": 2,
+    "false_positive": 0,
+    "false_negative": 0,
+    "false_positive_rate": 0.0,
+    "false_negative_rate": 0.0,
+    "mean_latency_ms": 656.75,
+    "max_latency_ms": 741.62,
+    "note": "Synthetic, instructor-safe fixtures only; not real-world malware detection accuracy."
+  },
+  "boundaries": {
+    "T-final_unauthorized_request": "Member A/API responsibility; cannot test without authentication endpoints",
+    "T-final_restart_recovery": "Member A/API/database integration responsibility",
+    "OS_sandbox": "Separate process with watchdog, not a locked-down OS sandbox"
+  }
+}
